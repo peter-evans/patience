@@ -1,4 +1,4 @@
-// Package patience implements the patience diff algorithm.
+// Package patience implements the Patience Diff algorithm.
 package patience
 
 // LCS computes the longest common subsequence (LCS) of two string slices.

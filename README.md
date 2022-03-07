@@ -105,11 +105,11 @@ go get github.com/peter-evans/patience
 ## Usage
 
 ```go
-	a := strings.Split(textA, "\n")
-	b := strings.Split(textB, "\n")
+a := strings.Split(textA, "\n")
+b := strings.Split(textB, "\n")
 
-	diffs := patience.Diff(a, b)
-	diff := patience.DiffText(diffs)
+diffs := patience.Diff(a, b)
+diff := patience.DiffText(diffs)
 ```
 
 ## References

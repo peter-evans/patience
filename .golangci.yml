@@ -1,0 +1,12 @@
+linters:
+  enable:
+    - ifshort
+    - gocritic
+    - godot
+    - gofumpt
+    - prealloc
+    - predeclared
+    - revive
+    - thelper
+    - unconvert
+    - unparam

@@ -10,6 +10,9 @@ import (
 func DiffText(diffs []DiffLine) string {
 	s := make([]string, len(diffs))
 	for i, l := range diffs {
+		if len(l.Text) == 0 && l.Type == Equal {
+			continue
+		}
 		prefix := " "
 		switch l.Type {
 		case Insert:

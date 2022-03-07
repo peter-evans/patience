@@ -223,7 +223,7 @@ int main(int argc, char **argv)
 }`, "\n")
 
 	want := ` #include <stdio.h>
- 
+
 +int fib(int n)
 +{
 +    if(n > 2)
@@ -243,7 +243,7 @@ int main(int argc, char **argv)
          printf("%d\n", foo);
      }
  }
- 
+
 -int fact(int n)
 -{
 -    if(n > 1)

@@ -1,9 +1,8 @@
 // Package patience implements the Patience Diff algorithm.
 package patience
 
-// LCS computes the longest common subsequence (LCS) of two string slices.
-// https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
-// Returns the index pairs of the LCS.
+// LCS computes the longest common subsequence of two string
+// slices and returns the index pairs of the LCS.
 func LCS(a, b []string) [][2]int {
 	// Initialize the LCS table.
 	lcs := make([][]int, len(a)+1)

@@ -102,6 +102,16 @@ Common diff (Myers)
 go get github.com/peter-evans/patience
 ```
 
+## Usage
+
+```go
+	a := strings.Split(textA, "\n")
+	b := strings.Split(textB, "\n")
+
+	diffs := patience.Diff(a, b)
+	diff := patience.DiffText(diffs)
+```
+
 ## References
 
 The patience diff algorithm is credited to Bram Cohen. 

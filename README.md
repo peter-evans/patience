@@ -113,7 +113,13 @@ a := strings.Split(textA, "\n")
 b := strings.Split(textB, "\n")
 
 diffs := patience.Diff(a, b)
+
+// Combined diff
 diff := patience.DiffText(diffs)
+
+// Split diffs
+diffA := patience.DiffTextA(diffs)
+diffB := patience.DiffTextB(diffs)
 ```
 
 ## References

@@ -3,7 +3,6 @@ package patience
 
 import (
 	"reflect"
-	"strings"
 	"testing"
 )
 
@@ -163,103 +162,5 @@ func TestDiff(t *testing.T) {
 				t.Errorf("Diff() = %v, want %v", got, tt.want)
 			}
 		})
-	}
-}
-
-// TestPatienceCanonical tests the "canonical" patience diff example.
-// https://alfedenzo.livejournal.com/170301.html
-func TestPatienceCanonical(t *testing.T) {
-	a := strings.Split(`#include <stdio.h>
-
-// Frobs foo heartily
-int frobnitz(int foo)
-{
-    int i;
-    for(i = 0; i < 10; i++)
-    {
-        printf("Your answer is: ");
-        printf("%d\n", foo);
-    }
-}
-
-int fact(int n)
-{
-    if(n > 1)
-    {
-        return fact(n-1) * n;
-    }
-    return 1;
-}
-
-int main(int argc, char **argv)
-{
-    frobnitz(fact(10));
-}`, "\n")
-
-	b := strings.Split(`#include <stdio.h>
-
-int fib(int n)
-{
-    if(n > 2)
-    {
-        return fib(n-1) + fib(n-2);
-    }
-    return 1;
-}
-
-// Frobs foo heartily
-int frobnitz(int foo)
-{
-    int i;
-    for(i = 0; i < 10; i++)
-    {
-        printf("%d\n", foo);
-    }
-}
-
-int main(int argc, char **argv)
-{
-    frobnitz(fib(10));
-}`, "\n")
-
-	want := ` #include <stdio.h>
-
-+int fib(int n)
-+{
-+    if(n > 2)
-+    {
-+        return fib(n-1) + fib(n-2);
-+    }
-+    return 1;
-+}
-+
- // Frobs foo heartily
- int frobnitz(int foo)
- {
-     int i;
-     for(i = 0; i < 10; i++)
-     {
--        printf("Your answer is: ");
-         printf("%d\n", foo);
-     }
- }
-
--int fact(int n)
--{
--    if(n > 1)
--    {
--        return fact(n-1) * n;
--    }
--    return 1;
--}
--
- int main(int argc, char **argv)
- {
--    frobnitz(fact(10));
-+    frobnitz(fib(10));
- }`
-
-	if got := DiffText(Diff(a, b)); got != want {
-		t.Errorf("TestPatienceCanonical = %v, want %v", got, want)
 	}
 }

@@ -97,7 +97,7 @@ func makeHunks(diffs []DiffLine, precontext, postcontext int) []Hunk {
 	// Aggregate blocks of modified and unmodified diff lines, creating
 	// or updating hunks after each block.
 	var block Hunk
-	modifiedLines := 0 //nolint:ifshort
+	modifiedLines := 0
 	srcLineNum, dstLineNum := 0, 0
 	for _, l := range diffs {
 		if len(block.Diffs) == 0 ||
@@ -143,6 +143,7 @@ func makeHunks(diffs []DiffLine, precontext, postcontext int) []Hunk {
 }
 
 // min returns the minimum of two integers.
+// nolint:predeclared
 func min(a, b int) int {
 	if a < b {
 		return a

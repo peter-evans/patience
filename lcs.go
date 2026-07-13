@@ -44,12 +44,3 @@ func LCS(a, b []string) [][2]int {
 
 	return s
 }
-
-// max returns the maximum of two integers.
-// nolint:predeclared
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}

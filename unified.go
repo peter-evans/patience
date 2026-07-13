@@ -141,12 +141,3 @@ func makeHunks(diffs []DiffLine, precontext, postcontext int) []Hunk {
 
 	return hunks
 }
-
-// min returns the minimum of two integers.
-// nolint:predeclared
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}

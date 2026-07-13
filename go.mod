@@ -1,3 +1,3 @@
 module github.com/peter-evans/patience
 
-go 1.17
+go 1.25
